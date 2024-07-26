@@ -1,2 +1,26 @@
 
+.navbar{
+      background-color: #092635;
+      
+
+}
+
+.navbar .navbar-brand {
+      color: #fff;
+
+}
+
+/*style the navigation link */
+.navbar .nav-link{
+      color: #fff limportant;
+      text-decoration: none limportant;
+      margin-right: 20px;
+}
+
+/*add media quary for small acreens */
+@media (max-width:576px){
+      .navbar .nav-link {
+            margin-right: 0;
+      }
+}
 
