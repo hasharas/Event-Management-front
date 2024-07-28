@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./PostUser.css";
 import form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button";
+import { useNavigate }  from "react-router-dom";
+
 
 const PostUser = () =>{
 
@@ -19,13 +21,35 @@ const PostUser = () =>{
                   ...formData,
                   [name]:value,
             })
+      };
+
+      const navigate = useNavigate();
+
+      const handleSubmit = async (e) =>{
+            e.preventDefault();
+
+            console.log(formData);
+
+            try {
+                  const response = await fetch("http://localhost:8081/api/employee",{
+                        method : "post",
+                        headers: {"Content-type":"application/json"},
+                        body:JSON.stringify(formData)
+                  });
+
+                  const data =await response.json();
+                  console.log("Employee created:",data);
+                  navigate("/")
+            } catch (error) {
+                  console.log("Error creating employee:",error.massege);
+            }
       }
 
       return(
             <>
                   <div className="center-form">
                         <h1 className="h1" >Post New Employee</h1>
-                        <form action="">
+                        <form onSubmit={handleSubmit}>
                               <form.Group controlId = "formBasicName">
                                     <form.Control 
                                           type="text"

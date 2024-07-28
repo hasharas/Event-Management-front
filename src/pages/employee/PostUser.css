@@ -1,6 +1,6 @@
 .center-form {
       display: flex;
-      background-color: #1B4242;
+      background-color: #5C8374;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -28,12 +28,12 @@
 }
 
 .center-form form .custom-button{
-      background-color: #092635;
+      background-color: #1B4242;
       color: white;
       border-color: #092635;
     }
 
     .center-form form .custom-button:hover {
-      background-color: #073e50;
+      background-color: #092635;
       border-color: #073e50;
     }
