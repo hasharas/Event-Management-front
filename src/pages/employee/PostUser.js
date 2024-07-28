@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./PostUser.css";
 import form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button";
 
 const PostUser = () =>{
 
@@ -12,7 +13,7 @@ const PostUser = () =>{
             department:""
       });
 
-      const handleInputChange = () =>{
+      const handleInputChange = (event) =>{
             const {name, value} = event.target;
             setFormData({
                   ...formData,
@@ -23,7 +24,7 @@ const PostUser = () =>{
       return(
             <>
                   <div className="center-form">
-                        <h1>Post New Employee</h1>
+                        <h1 className="h1" >Post New Employee</h1>
                         <form action="">
                               <form.Group controlId = "formBasicName">
                                     <form.Control 
@@ -37,7 +38,7 @@ const PostUser = () =>{
 
                               <form.Group controlId = "formBasicName">
                                     <form.Control 
-                                          type="text"
+                                          type="email"
                                           name="email"
                                           placeholder="Enter email"
                                           value={formData.email}
@@ -65,7 +66,7 @@ const PostUser = () =>{
                                     />
                               </form.Group>
 
-                              <Button variants="primary" type="submit" className="w-100">
+                              <Button   type="submit" className="w-100 custom-button">
                                     Post Employee
                               </Button>
 
