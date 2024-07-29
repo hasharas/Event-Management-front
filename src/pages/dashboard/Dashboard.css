@@ -1,0 +1,15 @@
+
+.custom-table {
+    border-radius: 6px;
+    overflow: hidden; 
+    background-color: #9EC8B9;
+}
+
+.custom-table thead {
+    background-color: #7CA3A4; 
+    color: #fff;
+}
+
+.custom-bt{
+    
+  }
