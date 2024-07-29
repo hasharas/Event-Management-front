@@ -4,11 +4,13 @@ import { Button, Row, Col, Container } from "react-bootstrap";
 //import Raw from "react-bootstrap/Raw";
 //import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
+import { useNavigate } from "react-router-dom";
 
 //import Button from "react-bootstrap/Button";
 
 const Dashboard = () => {
       const [employees, setEmployees] = useState([]);
+      const navigate = useNavigate();
 
       useEffect(() => {
             const fetchEmployees = async () => {
@@ -43,6 +45,10 @@ const Dashboard = () => {
             }
       };
 
+      const handleUpdate = (employeeId) => {
+            navigate(`/employee/${employeeId}`);
+      }
+
       return (
             <>
                   <Container className="mt-4">
@@ -67,10 +73,12 @@ const Dashboard = () => {
                                                             <td>{employee.phone}</td>
                                                             <td>{employee.department}</td>
                                                             <td>
-                                                                  <Button variant="outline-secondary" className="custom-bt">
+                                                                  <Button variant="outline-secondary" className="custom-bt" onClick={() => handleUpdate(employee.id)}>
                                                                         Update
                                                                   </Button>{" "}
-                                                                  <Button variant="outline-danger" onClick={() => handleDelete(employee.id)}>Delete</Button>
+                                                                  <Button variant="outline-danger" onClick={() => handleDelete(employee.id)}>
+                                                                        Delete
+                                                                  </Button>
                                                             </td>
                                                       </tr>
                                                 ))}
