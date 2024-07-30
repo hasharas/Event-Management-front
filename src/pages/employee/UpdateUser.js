@@ -63,7 +63,7 @@ const UpdateUser = () => {
             <>
                   <div className="center-form">
                         <h1 className="h1" >Edit Employee</h1>
-                        <form >
+                        <form onSubmit={handleSubmit}>
                               <form.Group controlId="formBasicName">
                                     <form.Control
                                           type="text"
