@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./UpdateUser.css";
 import { Button } from 'react-bootstrap';
 import form from "react-bootstrap/Form"
+import { useParams } from 'react-router-dom';
 const UpdateUser = () => {
 
+      const { id } = useParams();
       const [formData, setFormData] = useState({
             name: "",
             email: "",
@@ -18,6 +20,20 @@ const UpdateUser = () => {
                   [name]: value,
             })
       };
+
+      useEffect(() => {
+            const fetchEmployee = async () => {
+                  try {
+                        const response = await fetch(`http://localhost:8081/api/employee/${id}`);
+                        const data = await response.json();
+                        setFormData(data);
+                  } catch (error) {
+                        console.error("Error fetching user:", error.message);
+
+                  }
+            }
+            fetchEmployee();
+      }, [id])
 
 
       return (
